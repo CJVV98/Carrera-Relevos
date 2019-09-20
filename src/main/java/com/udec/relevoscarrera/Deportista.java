@@ -119,20 +119,20 @@ public class Deportista extends Thread {
      private synchronized  void correr (int paso, char atr) {   
         StringBuffer datoCarrera=new StringBuffer("0---------------------------------E--------------------------------F---------------------------------");                               
         StringBuffer dato=validarCarrera(datoCarrera, paso);   
-            if(getNombre().equals("Equipo1")){
-                dato.setCharAt(paso, atr);                
-                System.out.println("\u001B[31m"+"Equipo1 "+dato);               
+        if(getNombre().equals("Equipo1")){
+            dato.setCharAt(paso, atr);                
+             System.out.println("\u001B[31m"+"Equipo1 "+dato);               
+        }else{
+            if(getNombre().equals("Equipo2")){
+                dato.setCharAt(paso, atr);                                      
+                System.out.println("\u001B[32m"+"Equipo2 "+dato);
             }else{
-                if(getNombre().equals("Equipo2")){
-                    dato.setCharAt(paso, atr);                                      
-                    System.out.println("\u001B[32m"+"Equipo2 "+dato);
-                }else{
                     if(getNombre().equals("Equipo3")){
                         dato.setCharAt(paso, atr);                        
                         System.out.println("\u001B[33m"+"Equipo3 "+dato);                   
                     }
-                }
-            } 
+            }
+        } 
         try {
             Thread.sleep(100);
         } catch (InterruptedException ex) {
@@ -145,7 +145,7 @@ public class Deportista extends Thread {
      * @param pasos del corredor
      */
     private void primerCorredor(int pasos) {
-         while(inicio==0){
+        while(inicio==0){
             corredoresP(33,'0',pasos);            
         }  
     }
